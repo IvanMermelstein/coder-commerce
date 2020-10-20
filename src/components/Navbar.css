@@ -1,10 +1,13 @@
 .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    background: #202020;
     height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
 }
   
 .navbar-logo {

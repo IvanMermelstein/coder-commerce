@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, BrowserRouter as Router } from 'react-router-dom'
+import CartWidget from './CartWidget'
 import './Navbar.css'
 
 function Navbar() {
@@ -34,7 +35,12 @@ function Navbar() {
                                 <br />
                                 <i className='fas fa-sign-in-alt'></i>                                                        
                             </Link>
-                        </li>                                               
+                        </li>
+
+                        <li className='nav-item'>   
+                            <CartWidget />                               
+                        </li>                   
+                                                    
                     </ul>
 
                 </nav>
