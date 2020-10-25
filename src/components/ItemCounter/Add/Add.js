@@ -1,22 +1,11 @@
 import React from 'react'
+import './Add.css'
 
 const Add = (props) => {
 
-    const add = {
-        display: 'flex',
-        alignItems: 'center',
-        cursor: 'pointer',
-        backgroundColor: 'red',
-        padding: 20,
-        border: '2px solid black',
-        color: 'white',
-        height: 10,
-        borderRadius: 10
-    }
-
     return (
         <>
-            <div className="add" style={add} onClick={props.onAdd}>
+            <div className="add" onClick={props.onAdd(props.counter)}>
                 Agregar
             </div>
         </>

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
-import ItemListContainer from './components/ItemListContainer';
-import Navbar from './components/Navbar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Navbar from './components/Navbar/Navbar';
 import ItemCounter from './components/ItemCounter/ItemCounter'
 
 function App() {
 
-    // ---------->>
+    // -------------------------------------------------------------------------------->>
     // Temporal para probar ItemCounter 
 
     const available = 20
@@ -14,29 +14,21 @@ function App() {
 
     const [stock, setStock] = useState(available)
     const [cart, setCart] = useState(0)
-    // const [counter, setCounter] = useState(initial)
-    // const [exceeded, setExceeded] = useState(false)
-
-    // const handleClick = (amount) => {
-      
-    //     return () => {
-    //         let total = (amount < 0) ? 0 : amount
-    //         let limit = (stock < total) ? stock : total
-
-    //         setCounter(limit)
-    //         setExceeded(((stock - 1) < total) || (total === 0))
-    //     }
-    // }
 
     const handleAdd = (counter) => {
-        console.log(counter)        
-        if(stock > 0) {
-            let left = stock - counter
-            setCart(counter + cart)
-            setStock(left)
-            // setCounter((initial > left) ? left : initial)
-        } else {
-            alert('Sin stock!')
+        return () => {
+            if(stock > 0) {
+                if (counter <= stock){
+                    let left = stock - counter
+                    setCart(counter + cart)
+                    setStock(left)
+                } else {
+                    alert('No hay stock suficiente!')
+                }
+                // setCounter((initial > left) ? left : initial)
+            } else {
+                alert('Sin stock!')
+            }
         }
     }
 
@@ -47,7 +39,7 @@ function App() {
     }
 
     // Temporal para probar ItemCounter 
-    // ---------->>
+    // -------------------------------------------------------------------------------->>
 
     return (
         <div className="App">
@@ -70,9 +62,6 @@ function App() {
                 onAdd={handleAdd}
                 stock={stock}
                 initial={initial}
-                // counter = {counter}
-                // handleClick = {handleClick}
-                // exceeded = {exceeded}
             />
         </div>
     );

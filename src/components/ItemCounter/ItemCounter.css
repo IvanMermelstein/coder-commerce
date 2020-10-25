@@ -1,0 +1,24 @@
+.itemCounter {
+    width: 220px;
+    height: 100%;
+    background-color: #202020;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px 0px 20px 20px;
+    margin: 50px auto;
+}
+
+.upper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 40%;
+    margin: 10px 0px 0px;
+}
+
+.lower { 
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}

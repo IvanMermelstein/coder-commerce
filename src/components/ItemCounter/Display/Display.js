@@ -3,17 +3,17 @@ import React from 'react'
 const Display = (props) => {
 
     const display = {
-        height: 50,
-        width: 100,
+        height: 40,
+        width: 60,
         backgroundColor: 'white',
-        border: '2px solid black',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         fontWeight: '700',
-        fontSize: '2rem',
+        fontSize: '1.75rem',
         borderRadius: 10,
-        color: props.exceeded ? 'red' : 'black',
+        color: props.exceeded ? '#b4000f' : '#202020',
+        marginTop: '4px'
     }
 
     return (
