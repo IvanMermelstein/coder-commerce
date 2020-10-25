@@ -23,13 +23,13 @@ const ItemCounter = (props) => {
             <div className="itemCounter">
         
                 <div className="upper">
-                    <Button add={false} handleClick={handleClick} counter={counter} />
+                    <Button add={false} onClick={handleClick} counter={counter} />
                     <Display counter={counter} exceeded={exceeded} />
-                    <Button add={true} handleClick={handleClick} counter={counter} />
+                    <Button add={true} onClick={handleClick} counter={counter} />
                 </div>
 
                 <div className="lower">    
-                    <Add onAdd={props.onAdd} counter={counter} />
+                    <Add onAdd={props.onAdd} counter={[counter, setCounter]} />
                 </div>
         
             </div>

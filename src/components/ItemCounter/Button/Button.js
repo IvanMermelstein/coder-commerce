@@ -24,7 +24,7 @@ const Button = (props) => {
             <div 
                 className="button" 
                 style={buttonStyle} 
-                onClick={props.handleClick(amount)}
+                onClick={props.onClick(amount)}
             >
                 {sign}
             </div>

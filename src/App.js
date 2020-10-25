@@ -15,17 +15,13 @@ function App() {
     const [stock, setStock] = useState(available)
     const [cart, setCart] = useState(0)
 
-    const handleAdd = (counter) => {
+    const handleAdd = ([counter, setCounter]) => {
         return () => {
             if(stock > 0) {
-                if (counter <= stock){
-                    let left = stock - counter
-                    setCart(counter + cart)
-                    setStock(left)
-                } else {
-                    alert('No hay stock suficiente!')
-                }
-                // setCounter((initial > left) ? left : initial)
+                let left = stock - counter
+                setCart(counter + cart)
+                setStock(left)
+                setCounter((initial > left) ? left : initial)
             } else {
                 alert('Sin stock!')
             }
