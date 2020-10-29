@@ -1,9 +1,12 @@
 import React from 'react'
+import './Item.css'
 
 const Item = (props) => {
     return (
-        <li key={props.item.id}>
-            {props.item.id} - {props.item.title} - {props.item.price} - {props.item.pictureUrl}
+        <li key={props.item.id} className="item">
+            <img src={props.item.pictureUrl} alt=""/>
+            <h3>{props.item.title}</h3>
+            <h4>{props.item.price}</h4>    
         </li>
     )
 }

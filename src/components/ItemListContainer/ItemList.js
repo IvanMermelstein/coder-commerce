@@ -1,9 +1,10 @@
 import React from 'react'
 import Item from './Item'
+import './ItemList.css'
 
 const ItemList = (props) => {
     return (
-        <ul>
+        <ul className="item-list">
             {props.itemsArr.map(item => 
                 <Item item={item} /> 
             )}

@@ -6,26 +6,61 @@ const ItemListContainer = (props) => {
 
     const [itemsArr, setItemsArr] = useState([])
 
-    useEffect(() => {
-        const task = new Promise((resolve, reject) => {
-            resolve(
-                setTimeout(() => {
-                    setItemsArr( [
+    const getItems = () => {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                    res([
                         {
                             id: 1,
                             title: 'Pizza Pi',
                             price: 1.35,
-                            pictureUrl: "https://www.dummyurl.com/pizzapi"
+                            pictureUrl: "https://via.placeholder.com/150"
                         },
                         {
                             id: 2,
                             title: 'Pizza Delta',
                             price: 2.15,
-                            pictureUrl: "https://www.dummyurl.com/pizzadelta"
+                            pictureUrl: "https://via.placeholder.com/150"
+                        },
+                        {
+                            id: 2,
+                            title: 'Pizza Delta',
+                            price: 2.15,
+                            pictureUrl: "https://via.placeholder.com/150"
+                        },
+                        {
+                            id: 2,
+                            title: 'Pizza Delta',
+                            price: 2.15,
+                            pictureUrl: "https://via.placeholder.com/150"
+                        },
+                        {
+                            id: 2,
+                            title: 'Pizza Delta',
+                            price: 2.15,
+                            pictureUrl: "https://via.placeholder.com/150"
+                        },
+                        {
+                            id: 2,
+                            title: 'Pizza Delta',
+                            price: 2.15,
+                            pictureUrl: "https://via.placeholder.com/150"
+                        },
+                        {
+                            id: 2,
+                            title: 'Pizza Delta',
+                            price: 2.15,
+                            pictureUrl: "https://via.placeholder.com/150"
                         }
                     ])
-                }, 2000)
-            )
+                    rej('fail')
+            }, 2000)                
+        })
+    }
+
+    useEffect(() => {
+        getItems().then(items => {
+            setItemsArr(items)
         })
     }, [])
 
