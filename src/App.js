@@ -1,38 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Navbar from './components/Navbar/Navbar';
-import ItemCounter from './components/ItemCounter/ItemCounter'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
 
     // -------------------------------------------------------------------------------->>
     // Temporal para probar ItemCounter 
 
-    const available = 20
-    const initial = 5
+    // const available = 20
+    // const initial = 5
 
-    const [stock, setStock] = useState(available)
-    const [cart, setCart] = useState(0)
+    // const [stock, setStock] = useState(available)
+    // const [cart, setCart] = useState(0)
 
-    const handleAdd = ([counter, setCounter]) => {
-        return () => {
-            if(stock > 0) {
-                let left = stock - counter
-                setCart(counter + cart)
-                setStock(left)
-                setCounter((initial > left) ? left : initial)
-            } else {
-                alert('Sin stock!')
-            }
-        }
-    }
+    // const handleAdd = ([counter, setCounter]) => {
+    //     return () => {
+    //         if(stock > 0) {
+    //             let left = stock - counter
+    //             setCart(counter + cart)
+    //             setStock(left)
+    //             setCounter((initial > left) ? left : initial)
+    //         } else {
+    //             alert('Sin stock!')
+    //         }
+    //     }
+    // }
 
-    const info = {
-        width: '100%',
-        marginTop: 100,
-        textAlign: 'center'
-    }
+    // const info = {
+    //     width: '100%',
+    //     marginTop: 100,
+    //     textAlign: 'center'
+    // }
 
     // Temporal para probar ItemCounter 
     // -------------------------------------------------------------------------------->>
@@ -45,7 +45,7 @@ function App() {
                 title="Hola! Te damos la bienvenida" 
             />
             
-            <div 
+            {/* <div 
                 className="info" 
                 style={info}
             >
@@ -58,7 +58,9 @@ function App() {
                 onAdd={handleAdd}
                 stock={stock}
                 initial={initial}
-            />
+            /> */}
+
+            <ItemDetailContainer />
         </div>
     );
 }

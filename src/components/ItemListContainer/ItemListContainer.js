@@ -14,43 +14,43 @@ const ItemListContainer = (props) => {
                             id: 1,
                             title: 'Pizza Pi',
                             price: 1.35,
-                            pictureUrl: "https://via.placeholder.com/150"
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
                         },
                         {
                             id: 2,
                             title: 'Pizza Delta',
                             price: 2.15,
-                            pictureUrl: "https://via.placeholder.com/150"
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
                         },
                         {
                             id: 2,
                             title: 'Pizza Delta',
                             price: 2.15,
-                            pictureUrl: "https://via.placeholder.com/150"
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
                         },
                         {
                             id: 2,
                             title: 'Pizza Delta',
                             price: 2.15,
-                            pictureUrl: "https://via.placeholder.com/150"
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
                         },
                         {
                             id: 2,
                             title: 'Pizza Delta',
                             price: 2.15,
-                            pictureUrl: "https://via.placeholder.com/150"
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
                         },
                         {
                             id: 2,
                             title: 'Pizza Delta',
                             price: 2.15,
-                            pictureUrl: "https://via.placeholder.com/150"
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
                         },
                         {
                             id: 2,
                             title: 'Pizza Delta',
                             price: 2.15,
-                            pictureUrl: "https://via.placeholder.com/150"
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
                         }
                     ])
                     rej('fail')

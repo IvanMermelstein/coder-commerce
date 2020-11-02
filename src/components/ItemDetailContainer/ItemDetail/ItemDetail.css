@@ -1,0 +1,7 @@
+.itemDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: auto;
+    width: 220px;
+}
