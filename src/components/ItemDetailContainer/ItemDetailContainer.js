@@ -32,6 +32,7 @@ const ItemDetailContainer = (props) => {
 
     const [item, setItem] = useState({})
     const [itemsArr, setItemsArr] = useState([])
+    const [mount, setMount] = useState(false)
 
     const getItems = () => {
         return new Promise((res, rej) => {
@@ -85,7 +86,6 @@ const ItemDetailContainer = (props) => {
         })
     }
 
-
     useEffect(() => {
 
         if (itemsArr.length === 0){
@@ -94,8 +94,12 @@ const ItemDetailContainer = (props) => {
             })            
         }
 
-        setItem(itemsArr.filter(item => item.id.toString() === id))
-        
+        const arrAux = itemsArr.filter(item => item.id.toString() === id)
+        if (arrAux[0]){
+           setItem(arrAux[0]) 
+           setMount(true)
+        }
+
     }, [id, itemsArr])
 
     // const info = {
@@ -103,28 +107,31 @@ const ItemDetailContainer = (props) => {
     //     marginTop: 100,
     //     textAlign: 'center'
     // }
-
+    console.log('itemDetailContainer: ', item)
     return (
-        <div className="ItemDetailContainer">
-            <ItemDetail 
-                item={item}
-            />
+        <>
+        {mount && 
+            <div className="ItemDetailContainer">
+                <ItemDetail 
+                    item={item}
+                />
 
-            {/* <div 
-                className="info" 
-                style={info}
-            >
-                <h3>Disponibles: {stock}</h3>
-                <h3>Inicial: {initial}</h3>
-                <h3>Carrito: {cart}</h3>
-            </div> */}
+                {/* <div 
+                    className="info" 
+                    style={info}
+                >
+                    <h3>Disponibles: {stock}</h3>
+                    <h3>Inicial: {initial}</h3>
+                    <h3>Carrito: {cart}</h3>
+                </div> */}
 
-            <ItemCounter 
-                onAdd={handleAdd}
-                stock={stock}
-                initial={initial}
-            />
-        </div>
+                <ItemCounter 
+                    onAdd={handleAdd}
+                    stock={stock}
+                    initial={initial}
+                />
+            </div>}
+        </>
     )
 }
 
