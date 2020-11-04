@@ -23,31 +23,31 @@ const ItemListContainer = (props) => {
                             pictureUrl: "https://via.placeholder.com/270x175.png"
                         },
                         {
-                            id: 2,
+                            id: 3,
                             title: 'Pizza Delta',
                             price: 2.15,
                             pictureUrl: "https://via.placeholder.com/270x175.png"
                         },
                         {
-                            id: 2,
+                            id: 4,
                             title: 'Pizza Delta',
                             price: 2.15,
                             pictureUrl: "https://via.placeholder.com/270x175.png"
                         },
                         {
-                            id: 2,
+                            id: 5,
                             title: 'Pizza Delta',
                             price: 2.15,
                             pictureUrl: "https://via.placeholder.com/270x175.png"
                         },
                         {
-                            id: 2,
+                            id: 6,
                             title: 'Pizza Delta',
                             price: 2.15,
                             pictureUrl: "https://via.placeholder.com/270x175.png"
                         },
                         {
-                            id: 2,
+                            id: 7,
                             title: 'Pizza Delta',
                             price: 2.15,
                             pictureUrl: "https://via.placeholder.com/270x175.png"

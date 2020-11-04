@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ItemDetail from './ItemDetail/ItemDetail'
 import ItemCounter from '../ItemCounter/ItemCounter'
+import { useParams } from 'react-router-dom' 
 import './ItemDetailContainer.css'
 
 const ItemDetailContainer = (props) => {
@@ -24,31 +25,78 @@ const ItemDetailContainer = (props) => {
         }
     }
 
-    const [item, setItem] = useState([])
+    const {id} = useParams()
+    // useEffect(() => {
+    //     console.log(id)    
+    // }, [id])
 
-    const getItem = () => {
+    const [item, setItem] = useState({})
+    const [itemsArr, setItemsArr] = useState([])
+
+    const getItems = () => {
         return new Promise((res, rej) => {
             setTimeout(() => {
-                    res(
+                    res([
                         {
                             id: 1,
                             title: 'Pizza Pi',
-                            description: 'Esta es la pizza pi!',
                             price: 1.35,
                             pictureUrl: "https://via.placeholder.com/270x175.png"
+                        },
+                        {
+                            id: 2,
+                            title: 'Pizza Delta',
+                            price: 2.15,
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
+                        },
+                        {
+                            id: 3,
+                            title: 'Pizza Delta',
+                            price: 2.15,
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
+                        },
+                        {
+                            id: 4,
+                            title: 'Pizza Delta',
+                            price: 2.15,
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
+                        },
+                        {
+                            id: 5,
+                            title: 'Pizza Delta',
+                            price: 2.15,
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
+                        },
+                        {
+                            id: 6,
+                            title: 'Pizza Delta',
+                            price: 2.15,
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
+                        },
+                        {
+                            id: 7,
+                            title: 'Pizza Delta',
+                            price: 2.15,
+                            pictureUrl: "https://via.placeholder.com/270x175.png"
                         }
-                    )
+                    ])
                     rej('fail')
             }, 2000)                
         })
     }
 
-    useEffect(() => {
-        getItem().then(item => {
-            setItem(item)
-        })
-    }, [])
 
+    useEffect(() => {
+
+        if (itemsArr.length === 0){
+            getItems().then(items => {
+                setItemsArr(items)
+            })            
+        }
+
+        setItem(itemsArr.filter(item => item.id.toString() === id))
+        
+    }, [id, itemsArr])
 
     // const info = {
     //     width: '100%',

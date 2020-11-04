@@ -1,26 +1,21 @@
 import React from 'react'
-import { Link, BrowserRouter as Router } from 'react-router-dom'
-import CartWidget from './CartWidget'
+import { NavLink, Link } from 'react-router-dom'
 import './Navbar.css'
 
 function Navbar() {
     return (
         <header className="App-header">
-            <Router>
                 <nav className='navbar'>
-                    
                     <Link to='/' className='navbar-logo'>
                         𝝅zza
                     </Link>
-
                     <ul className='nav-menu'>
                         <li className='nav-item'>
                             <Link to='/food' className='nav-links'>
                                 Pizza!
                                 <br />
                                 <i className='fas fa-pizza-slice'></i>
-                            </Link>
-                            
+                            </Link> 
                         </li>
                         <li className='nav-item'>
                             <Link to='/contact-us' className='nav-links'>
@@ -36,15 +31,15 @@ function Navbar() {
                                 <i className='fas fa-sign-in-alt'></i>                                                        
                             </Link>
                         </li>
-
-                        <li className='nav-item'>   
-                            <CartWidget />                               
-                        </li>                   
-                                                    
+                        <li className='nav-item'>
+                            <NavLink to={`/cart`} className='nav-links' activeClassName='active-nav-links' >
+                                Carrito
+                                <br />
+                                <i className='fas fa-shopping-cart'></i>
+                            </NavLink>
+                        </li>                                          
                     </ul>
-
                 </nav>
-            </Router>
         </header>        
     )
 }
