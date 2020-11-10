@@ -1,34 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import ItemDetail from './ItemDetail/ItemDetail'
-import ItemCounter from '../ItemCounter/ItemCounter'
+// import ItemCounter from '../ItemCounter/ItemCounter'
 import { useParams } from 'react-router-dom' 
 import './ItemDetailContainer.css'
 
 const ItemDetailContainer = (props) => {
 
-    const available = 20
-    const initial = 5
+    // const available = 20
+    // const initial = 0
 
-    const [stock, setStock] = useState(available)
-    const [cart, setCart] = useState(0)
+    // const [stock, setStock] = useState(available)
+    // const [cart, setCart] = useState(0)
 
-    const handleAdd = ([counter, setCounter]) => {
-        return () => {
-            if(stock > 0) {
-                let left = stock - counter
-                setCart(counter + cart)
-                setStock(left)
-                setCounter((initial > left) ? left : initial)
-            } else {
-                alert('Sin stock!')
-            }
-        }
-    }
+    // const handleAdd = ([counter, setCounter]) => {
+    //     return () => {
+    //         if(stock > 0) {
+    //             let left = stock - counter
+    //             setCart(counter + cart)
+    //             setStock(left)
+    //             setCounter((initial > left) ? left : initial)
+    //         } else {
+    //             alert('Sin stock!')
+    //         }
+    //     }
+    // }
 
     const {id} = useParams()
-    // useEffect(() => {
-    //     console.log(id)    
-    // }, [id])
 
     const [item, setItem] = useState({})
     const [itemsArr, setItemsArr] = useState([])
@@ -107,7 +104,6 @@ const ItemDetailContainer = (props) => {
     //     marginTop: 100,
     //     textAlign: 'center'
     // }
-    console.log('itemDetailContainer: ', item)
     return (
         <>
         {mount && 
@@ -125,11 +121,11 @@ const ItemDetailContainer = (props) => {
                     <h3>Carrito: {cart}</h3>
                 </div> */}
 
-                <ItemCounter 
+                {/* <ItemCounter 
                     onAdd={handleAdd}
                     stock={stock}
                     initial={initial}
-                />
+                /> */}
             </div>}
         </>
     )

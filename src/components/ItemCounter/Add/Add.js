@@ -6,7 +6,7 @@ const Add = (props) => {
     return (
         <>
             <div className="add" onClick={props.onAdd(props.counter)}>
-                Agregar
+                {props.text}
             </div>
         </>
     )

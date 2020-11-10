@@ -29,7 +29,7 @@ const ItemCounter = (props) => {
                 </div>
 
                 <div className="lower">    
-                    <Add onAdd={props.onAdd} counter={[counter, setCounter]} />
+                    <Add onAdd={props.onAdd} counter={[counter, setCounter]} text="Agregar"/>
                 </div>
         
             </div>
