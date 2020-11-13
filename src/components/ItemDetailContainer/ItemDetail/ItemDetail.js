@@ -18,8 +18,10 @@ const ItemDetail = (props) => {
     const [stock, setStock] = useState(available)
     const [cart, setCart] = useState(0)
     const [displayCount, setDisplayCount] = useState(true)
-
+    const [item, setItem] = useState(props.item)
+    
     const handleAdd = ([counter, setCounter]) => {
+
         return () => {
             if(stock > 0) {
                 let left = stock - counter
@@ -28,12 +30,21 @@ const ItemDetail = (props) => {
                 setCounter((initial > left) ? left : initial)
                 if (counter > 0) {
                     setDisplayCount(!displayCount)
-                }                
+                    props.item.count = counter
+                    setItem(props.item)                
+                    console.log("item seteado: ", item)                    
+                }
             } else {
                 alert('Sin stock!')
             }
         }
     }
+
+    // function saveItems (counter) {
+    //     props.item.count = counter
+    //     setItem(props.item)                
+    //     console.log("item seteado: ", item)
+    // }
 
     return (
         <>
@@ -57,10 +68,13 @@ const ItemDetail = (props) => {
                 !displayCount &&
                 <Link to='/cart' className="finishButtonLink">
                     <button className="finishButton">Termina tu compra</button>
-                </Link>
+                </Link> 
+
             }
         </>
     )
 }
 
 export default ItemDetail
+
+

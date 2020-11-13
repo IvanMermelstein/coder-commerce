@@ -5,12 +5,11 @@ import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartWidget from './components/Navbar/CartWidget'
-// import { CartProvider } from './context/cartContext';
+// import { CartContext } from './context/cartContext';
 
-// AGREGAR STOCK Y CATEGORY EN ITEM
 function App() {
     return (
-        // <CartProvider value={[]}>
+        // <CartContext value={[]}>
             <BrowserRouter>
                 <Navbar />
                 <Switch>
@@ -27,7 +26,7 @@ function App() {
                     </Route>
                 </Switch>
             </BrowserRouter>
-        // </CartProvider>
+        // </CartContext>
     );
 }
 
