@@ -6,7 +6,7 @@ const ItemList = (props) => {
     return (
         <ul className="item-list">
             {props.itemsArr.map(item => 
-                <Item item={item} /> 
+                <Item key={item.id} item={item} /> 
             )}
         </ul>
     )

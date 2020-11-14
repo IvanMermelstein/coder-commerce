@@ -4,7 +4,7 @@ import './Item.css'
 
 const Item = (props) => {
     return (
-        <li key={props.item.id} className="item">
+        <li className="item">
             <Link 
                 to={`/item/${props.item.id}`} 
                 style={{textDecoration:'none'}}

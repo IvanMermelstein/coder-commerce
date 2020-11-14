@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-// import { useCartContext } from '../../../context/cartContext'
+import { useCartContext } from '../../../context/cartContext'
 import ItemCounter from '../../ItemCounter/ItemCounter'
 import './ItemDetail.css'
 
 const ItemDetail = (props) => {
 
-    // const {add} = useCartContext()
+    const {add} = useCartContext()
     // importar el cartContext ->
-    // function ondAdd(qty) {
-    //     console.log(`adding ${qty}`)
-    // }
+    const addToCartContext = () => {
+        add(item)
+    }
 
     const available = 20
     const initial = 0
@@ -32,19 +32,12 @@ const ItemDetail = (props) => {
                     setDisplayCount(!displayCount)
                     props.item.count = counter
                     setItem(props.item)                
-                    console.log("item seteado: ", item)                    
                 }
             } else {
                 alert('Sin stock!')
             }
         }
     }
-
-    // function saveItems (counter) {
-    //     props.item.count = counter
-    //     setItem(props.item)                
-    //     console.log("item seteado: ", item)
-    // }
 
     return (
         <>
@@ -67,7 +60,7 @@ const ItemDetail = (props) => {
             {
                 !displayCount &&
                 <Link to='/cart' className="finishButtonLink">
-                    <button className="finishButton">Termina tu compra</button>
+                    <button className="finishButton" onClick={addToCartContext}>Termina tu compra</button>
                 </Link> 
 
             }

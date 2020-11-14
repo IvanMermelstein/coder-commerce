@@ -5,11 +5,11 @@ import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartWidget from './components/Navbar/CartWidget'
-// import { CartContext } from './context/cartContext';
+import CartProvider from './context/cartContext';
 
 function App() {
     return (
-        // <CartContext value={[]}>
+        <CartProvider value={[]}>
             <BrowserRouter>
                 <Navbar />
                 <Switch>
@@ -26,7 +26,7 @@ function App() {
                     </Route>
                 </Switch>
             </BrowserRouter>
-        // </CartContext>
+        </CartProvider>
     );
 }
 
