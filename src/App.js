@@ -4,12 +4,12 @@ import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import CartWidget from './components/Navbar/CartWidget'
+import Cart from './components/Cart/Cart'
 import CartProvider from './context/cartContext';
 
 function App() {
     return (
-        <CartProvider value={[]}>
+        <CartProvider>
             <BrowserRouter>
                 <Navbar />
                 <Switch>
@@ -19,7 +19,7 @@ function App() {
                         />
                     </Route>
                     <Route path="/cart">
-                        <CartWidget />
+                        <Cart />
                     </Route>
                     <Route exact path="/item/:id">
                         <ItemDetailContainer />

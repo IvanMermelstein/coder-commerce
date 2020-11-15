@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ItemDetail from './ItemDetail/ItemDetail'
+import Loader from '../Loader/Loader'
 // import ItemCounter from '../ItemCounter/ItemCounter'
 import { useParams } from 'react-router-dom' 
 import './ItemDetailContainer.css'
@@ -96,7 +97,7 @@ const ItemDetailContainer = (props) => {
            setItem(arrAux[0]) 
            setMount(true)
         }
-
+        
     }, [id, itemsArr])
 
     // const info = {
@@ -106,12 +107,12 @@ const ItemDetailContainer = (props) => {
     // }
     return (
         <>
-        {mount && 
+        {mount === true ?
             <div className="ItemDetailContainer">
                 <ItemDetail 
                     item={item}
                 />
-
+    
                 {/* <div 
                     className="info" 
                     style={info}
@@ -120,13 +121,16 @@ const ItemDetailContainer = (props) => {
                     <h3>Inicial: {initial}</h3>
                     <h3>Carrito: {cart}</h3>
                 </div> */}
-
+    
                 {/* <ItemCounter 
                     onAdd={handleAdd}
                     stock={stock}
                     initial={initial}
                 /> */}
-            </div>}
+            </div>
+            :
+            <Loader/>
+        }
         </>
     )
 }

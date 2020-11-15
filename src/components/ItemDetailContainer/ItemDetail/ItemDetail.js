@@ -5,12 +5,7 @@ import ItemCounter from '../../ItemCounter/ItemCounter'
 import './ItemDetail.css'
 
 const ItemDetail = (props) => {
-
     const {add} = useCartContext()
-    // importar el cartContext ->
-    const addToCartContext = () => {
-        add(item)
-    }
 
     const available = 20
     const initial = 0
@@ -18,7 +13,12 @@ const ItemDetail = (props) => {
     const [stock, setStock] = useState(available)
     const [cart, setCart] = useState(0)
     const [displayCount, setDisplayCount] = useState(true)
-    const [item, setItem] = useState(props.item)
+    const [item, setItem] = useState({
+        id: props.item.id,
+        title: props.item.title,
+        price: props.item.price,
+        pictureUrl: props.item.pictureUrl
+    })
     
     const handleAdd = ([counter, setCounter]) => {
 
@@ -30,8 +30,9 @@ const ItemDetail = (props) => {
                 setCounter((initial > left) ? left : initial)
                 if (counter > 0) {
                     setDisplayCount(!displayCount)
-                    props.item.count = counter
-                    setItem(props.item)                
+                    item.count = counter
+                    setItem(item)  
+                    add(item)   
                 }
             } else {
                 alert('Sin stock!')
@@ -60,7 +61,8 @@ const ItemDetail = (props) => {
             {
                 !displayCount &&
                 <Link to='/cart' className="finishButtonLink">
-                    <button className="finishButton" onClick={addToCartContext}>Termina tu compra</button>
+                    <button className="finishButton">Termina tu compra</button>
+                    {/* <button className="finishButton" onClick={addToCartContext}>Termina tu compra</button> */}
                 </Link> 
 
             }

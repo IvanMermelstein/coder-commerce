@@ -1,11 +1,11 @@
 import React from 'react'
 
-const CartWidget = () => {
+const CartWidget = ({ count }) => {
+    
     return (
         <>
-            <h2 style={{marginTop: "100px"}}>
-                Maybe sometime I'll be a cart
-            </h2> 
+            <><i className='fas fa-shopping-cart'></i>
+            <span style={{marginLeft: '10px'}}>{count}</span></> 
         </>
     )
 }

@@ -4,23 +4,19 @@ export const CartContext = React.createContext()
 export const useCartContext = () => useContext(CartContext)
 
 export default function CartProvider({ children, defaultCart = [] }) {
-    // Almacen de estado de compra - funciona como nuestra propia API
-
-    let [cart, setCart] = useState(defaultCart)
+    
+    const [cart, setCart] = useState(defaultCart)
 
     function add(item) {
 
         const itemF = cart.find(it => it.id === item.id)
-
         if(!itemF) {
-            cart.push(item)
-            setCart(cart)
-            // setCart([...cart, item])
-            // console.log(cart)
+            setCart([...cart, item])
         } else {
-            const index = cart.findIndex(itemF)
-            cart[index] = item
-            setCart(cart)
+            const index = cart.findIndex(i => i.id = itemF.id)
+            const cartAux = [...cart]
+            cartAux[index].count += item.count
+            setCart(cartAux)
         }
     }
 
@@ -32,7 +28,7 @@ export default function CartProvider({ children, defaultCart = [] }) {
         setCart([])
     }
 
-    return <CartContext.Provider value={{ cart, add, remove, clear }}>
+    return <CartContext.Provider value={{ cart, add, remove, clear}}>
         {children}
     </CartContext.Provider>
 }

@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-// import { useCartContext } from '../../context/cartContext'
+import CartWidget from './CartWidget'
+import { useCartContext } from '../../context/cartContext'
 import './Navbar.css'
 
 function Navbar() {
-    // const { cart } = useCartContext()
+    
+    const { cart } = useCartContext()    
+    const [count, setCount] = useState(0)
+
+    useEffect(() => {
+        setCount(0)
+        console.log('Navbar - cart:', cart)
+        for (let i = 0; i < cart.length; i++) {
+            setCount(count => count + cart[i].count) 
+        }
+        // console.log('Navbar - count:', count)
+    }, [cart])
+
     return (
         <header className="App-header">
             <nav className='navbar'>
@@ -34,11 +47,15 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <NavLink to={`/cart`} className='nav-links' activeClassName='active-nav-links' >
-                            Carrito
-                            <br />
-                            <i className='fas fa-shopping-cart'></i>
-                        </NavLink>
+                        {
+                            count > 0 ?
+                                <NavLink to={`/cart`} className='nav-links' activeClassName='active-nav-links' >
+                                    Carrito
+                                    <br />
+                                    <CartWidget count={count}/>
+                                </NavLink> :
+                                <></>
+                        }
                     </li>                                          
                 </ul>
             </nav>

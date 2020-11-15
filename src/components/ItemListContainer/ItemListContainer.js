@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import ItemList from './ItemList'
+import Loader from '../Loader/Loader'
 import './ItemListContainer.css'
 
 const ItemListContainer = (props) => {
 
     const [itemsArr, setItemsArr] = useState([])
+    const [load, setLoad] = useState(true)
 
     const getItems = () => {
         return new Promise((res, rej) => {
@@ -61,13 +63,16 @@ const ItemListContainer = (props) => {
     useEffect(() => {
         getItems().then(items => {
             setItemsArr(items)
+            setLoad(false)
         })
     }, [])
 
     return (
         <div className="div-container">
             <h1 className="title">{props.title}</h1>
-            <ItemList itemsArr={itemsArr}/>
+            { load === true ? <Loader /> :
+                              <ItemList itemsArr={itemsArr}/>
+            }
         </div>
     )
 }
