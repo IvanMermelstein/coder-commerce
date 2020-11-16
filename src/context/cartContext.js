@@ -24,11 +24,27 @@ export default function CartProvider({ children, defaultCart = [] }) {
         setCart(cart.filter( item => item.id !== itemId))
     }
 
-    function clear (cart) {
+    function clear () {
         setCart([])
     }
 
-    return <CartContext.Provider value={{ cart, add, remove, clear}}>
+    function totalPrice () {
+        let total = 0
+        for (let i = 0; i < cart.length; i++) {
+            total += cart[i].price * cart[i].count
+        }
+        return total.toFixed(2)
+    }
+
+    function totalCount () {
+        let total = 0
+        for (let i = 0; i < cart.length; i++) {
+            total += cart[i].count
+        }
+        return total
+    }
+
+    return <CartContext.Provider value={{ cart, add, remove, clear, totalPrice, totalCount}}>
         {children}
     </CartContext.Provider>
 }

@@ -6,17 +6,12 @@ import './Navbar.css'
 
 function Navbar() {
     
-    const { cart } = useCartContext()    
+    const { cart, totalCount } = useCartContext()    
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-        setCount(0)
-        console.log('Navbar - cart:', cart)
-        for (let i = 0; i < cart.length; i++) {
-            setCount(count => count + cart[i].count) 
-        }
-        // console.log('Navbar - count:', count)
-    }, [cart])
+        setCount(() => totalCount())
+    }, [cart, totalCount])
 
     return (
         <header className="App-header">
