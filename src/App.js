@@ -13,17 +13,17 @@ function App() {
             <BrowserRouter>
                 <Navbar />
                 <Switch>
-                    <Route exact path="/" >
-                        <ItemListContainer 
-                            title="Hola! Te damos la bienvenida" 
-                        />
-                    </Route>
                     <Route path="/cart">
                         <Cart />
                     </Route>
                     <Route exact path="/item/:id">
                         <ItemDetailContainer />
                     </Route>
+                    <Route exact path="/:categoryId?" >
+                        <ItemListContainer 
+                            title="Hola! Te damos la bienvenida" 
+                        />
+                    </Route>                    
                 </Switch>
             </BrowserRouter>
         </CartProvider>

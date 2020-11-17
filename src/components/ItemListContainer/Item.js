@@ -11,7 +11,7 @@ const Item = (props) => {
             >
                 <img src={props.item.pictureUrl} alt=""/>
                 <h3>{props.item.title}</h3>
-                <h4>{props.item.price}</h4>    
+                <h4>{props.item.price}</h4>
             </Link>
         </li>
     )
