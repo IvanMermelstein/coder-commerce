@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 const CartItemNone = () => {
     return (
         <>
-            <h3>No items in your cart</h3>   
+            <h3>El carrito esta vacio</h3>   
             <Link to='/'>
-                <button>You should click me</button>
+                <button>Volver al Inicio</button>
             </Link>
         </>
     )

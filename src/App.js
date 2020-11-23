@@ -23,7 +23,7 @@ function App() {
                         <ItemListContainer 
                             title="Hola! Te damos la bienvenida" 
                         />
-                    </Route>                    
+                    </Route>
                 </Switch>
             </BrowserRouter>
         </CartProvider>

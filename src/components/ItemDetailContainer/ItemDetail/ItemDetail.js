@@ -62,7 +62,6 @@ const ItemDetail = (props) => {
                 !displayCount &&
                 <Link to='/cart' className="finishButtonLink">
                     <button className="finishButton">Termina tu compra</button>
-                    {/* <button className="finishButton" onClick={addToCartContext}>Termina tu compra</button> */}
                 </Link> 
 
             }
