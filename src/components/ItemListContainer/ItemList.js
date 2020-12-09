@@ -1,14 +1,19 @@
 import React from 'react'
 import Item from './Item'
-import './ItemList.css'
+import Grid from '@material-ui/core/Grid';
 
 const ItemList = (props) => {
+
     return (
-        <ul className="item-list">
-            {props.itemsArr.map(item => 
-                <Item key={item.id} item={item} /> 
-            )}
-        </ul>
+        <Grid item xs={12} style={{marginTop: '40px'}}>
+            <Grid container justify="center" spacing={8}>
+                {props.itemsArr.map(item => 
+                    <Grid key={item.id} item>
+                        <Item key={item.id} item={item} /> 
+                    </Grid>
+                )}
+            </Grid>
+        </Grid>
     )
 }
 

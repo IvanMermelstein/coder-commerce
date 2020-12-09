@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import ItemList from './ItemList'
 import Loader from '../Loader/Loader'
-import './ItemListContainer.css'
 import { getFirestore } from '../../firebase'
 import { useParams } from 'react-router-dom' 
+import Container from '@material-ui/core/Container'
+import CategorySelector from '../Category/CategorySelector'
 
 const ItemListContainer = (props) => {
 
@@ -36,12 +37,18 @@ const ItemListContainer = (props) => {
     }, [categoryId])
 
     return (
-        <div className="div-container">
-            <h1 className="title">{props.title}</h1>
-            { load === true ? <Loader /> :
-                              <ItemList itemsArr={itemsArr}/>
+        <>
+        <Container>            
+            { 
+                load === true ? 
+                    <Loader /> :
+                    <>
+                        <CategorySelector />
+                        <ItemList itemsArr={itemsArr} />
+                    </>   
             }
-        </div>
+        </Container>
+        </>
     )
 }
 

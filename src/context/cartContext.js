@@ -6,6 +6,7 @@ export const useCartContext = () => useContext(CartContext)
 export default function CartProvider({ children, defaultCart = [] }) {
     
     const [cart, setCart] = useState(defaultCart)
+    const [finished, setFinished] = useState(false)
 
     function add(item) {
 
@@ -26,6 +27,7 @@ export default function CartProvider({ children, defaultCart = [] }) {
 
     function clear () {
         setCart([])
+        setFinished(false)
     }
 
     function totalPrice () {
@@ -44,7 +46,11 @@ export default function CartProvider({ children, defaultCart = [] }) {
         return total
     }
 
-    return <CartContext.Provider value={{ cart, add, remove, clear, totalPrice, totalCount}}>
+    function finish () {
+        setFinished(true)
+    }
+
+    return <CartContext.Provider value={{ cart, add, remove, clear, totalPrice, totalCount, finish, finished }}>
         {children}
     </CartContext.Provider>
 }

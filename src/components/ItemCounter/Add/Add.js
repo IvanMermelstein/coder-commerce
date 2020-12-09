@@ -1,13 +1,17 @@
 import React from 'react'
-import './Add.css'
+import Button from '@material-ui/core/Button'
 
 const Add = (props) => {
 
     return (
         <>
-            <div className="add" onClick={props.onAdd(props.counter)}>
+            <Button 
+                onClick={props.onAdd(props.counter)}
+                color='secondary'
+                variant='contained'
+            >
                 {props.text}
-            </div>
+            </Button>
         </>
     )
 }

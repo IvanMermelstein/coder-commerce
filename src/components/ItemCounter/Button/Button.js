@@ -1,33 +1,21 @@
 import React from 'react'
-
+import IconButton from '@material-ui/core/IconButton';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 const Button = (props) => {
     
-    let buttonStyle = {
-        paddingTop: '8px'
-    }
-
-    let iStyle = {
-        cursor: 'pointer',
-        display: 'flex',
-        justifyContent: 'center',
-        color: 'white'   
-    }
-    
-    let sign = props.add ?  <i className="fas fa-plus-circle fa-2x" style={iStyle}></i> 
-                            : 
-                            <i className="fas fa-minus-circle fa-2x" style={iStyle}></i>
+    let sign = props.add ?  <AddIcon /> : <RemoveIcon />  
     let amount = props.add ? (props.counter + 1) : (props.counter - 1)
 
     return (
         <>
-            <div 
-                className="button" 
-                style={buttonStyle} 
+            <IconButton 
                 onClick={props.onClick(amount)}
+                color='secondary'
             >
                 {sign}
-            </div>
+            </IconButton>
         </>
     )
 }

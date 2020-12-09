@@ -10,8 +10,8 @@ const useStyles = makeStyles({
     },
 });
 
-const CartItemNone = () => {
-
+const ItemDetailNoItem = () => {
+    
     const classes = useStyles()
 
     return (
@@ -19,11 +19,11 @@ const CartItemNone = () => {
             <Typography 
                 variant='subtitle1'
             >
-                El carrito esta vacio
+                El item no existe
             </Typography>   
             <BackToHome />
         </div>
     )
 }
 
-export default CartItemNone
+export default ItemDetailNoItem

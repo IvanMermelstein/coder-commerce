@@ -2,9 +2,31 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../../context/cartContext'
 import ItemCounter from '../../ItemCounter/ItemCounter'
-import './ItemDetail.css'
+import ItemDetailCard from '../ItemDetailCard'
+import Button from '@material-ui/core/Button'
+import { makeStyles } from '@material-ui/core/styles'
+import BackToHome from '../../BackToHome/BackToHome'
+
+const useStyles = makeStyles({
+    root: {
+        width: 200,
+        marginTop: '10px',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        alignSelf: 'center',
+    },
+    link: {
+        textDecoration: 'none',
+        marginTop:'15px'
+    },
+});
 
 const ItemDetail = (props) => {
+
+    const classes = useStyles()
+
     const {add} = useCartContext()
 
     const available = 20
@@ -17,7 +39,8 @@ const ItemDetail = (props) => {
         id: props.item.id,
         title: props.item.title,
         price: props.item.price,
-        pictureUrl: props.item.pictureUrl
+        pictureUrl: props.item.pictureUrl,
+        description: props.item.description
     })
     
     const handleAdd = ([counter, setCounter]) => {
@@ -41,31 +64,28 @@ const ItemDetail = (props) => {
     }
 
     return (
-        <>
-            <div className="itemDetail">
-                <img src={props.item.pictureUrl} alt=""/>
-                <h4>{props.item.title}</h4>
-                <h6>{props.item.description}</h6>
-                <h6>{props.item.price}</h6>
-            </div>
-
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <ItemDetailCard item={item} />
             {
-                displayCount && 
+                displayCount ?
                 <ItemCounter 
                         onAdd={handleAdd}
                         stock={stock}
                         initial={initial}
-                    />
+                /> :
+                <div className={classes.root}>
+                    <Link to='/cart' className={classes.link} >
+                        <Button 
+                            color='secondary'
+                            variant='contained'
+                        >
+                            Termina tu compra
+                        </Button>
+                    </Link> 
+                    <BackToHome />
+                </div>
             }
-
-            {
-                !displayCount &&
-                <Link to='/cart' className="finishButtonLink">
-                    <button className="finishButton">Termina tu compra</button>
-                </Link> 
-
-            }
-        </>
+        </div>
     )
 }
 
